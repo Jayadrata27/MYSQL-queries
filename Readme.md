@@ -181,8 +181,67 @@ eg.   CREATE TABLE CUSTOMER(
 
 
 
-35.
+35.Replace table_data
+REPLACE INTO table_name SET col1=val1,col2=val2;
+eg. REPLACE INTO CUSTOMER SET ID=1300,CNAME='MAC',CITY='UTAH';
+eg. REPLACE INTO CUSTOMER(ID,CNAME,CITY) VALUES(1233,'CODEHELP','COLONY');
 
+
+
+
+36.inner join
+SELECT C.* ,O.* FROM CUSTOMER AS C 
+   INNER JOIN ORDER AS O ON C.ID=O.CUSTID;
+
+   Enlist all the employees ID's, names along with the Project allocated to them.
+eg. SELECT E.ID,E.FNAME,E.LNAME,P.ID,P.NAME FROM EMPLOYEE AS E 
+       INNER JOIN PROJECT AS P ON E.ID=P.EMPID;
+
+eg. SELECT E.ID,E.FNAME,E.LNAME,P.ID,P.NAME FROM EMPLOYEE AS E, PROJECT AS P WHERE E.ID=P.EMPID;  
+
+Enlist all the element on of the tables
+eg. SELECT * FROM EMPLOYEE AS E 
+       INNER JOIN PROJECT AS P ON E.ID=P.EMPID;
+
+
+
+37.left join
+SELECT C.* ,O.* FROM CUSTOMER AS C 
+   LEFT JOIN ORDER AS O ON C.ID=O.CUSTID;
+eg. SELECT * FROM EMPLOYEE AS E
+    LEFT JOIN PROJECT AS P ON E.ID=P.EMPID;
+
+
+38.right join
+SELECT C.* ,O.* FROM CUSTOMER AS C 
+   RIGHT JOIN ORDER AS O ON C.ID=O.CUSTID;
+eg. SELECT E.FNAME,E.LNAME,E.EMAILID,P.ID,P.NAME FROM EMPLOYEE AS E
+    RIGHT JOIN PROJECT AS P ON E.ID=P.EMPID;
+
+
+39.cross join
+eg. SELECT E.FNAME,E.LNAME,P.ID,P.NAME FROM EMPLOYEE AS E
+     CROSS JOIN PROJECT AS P;
+
+
+
+40.union
+eg.     SELECT * FROM DEPT1
+        UNION
+        SELECT * FROM DEPT2;
+
+
+41.intersection
+        list out all the employees who work in all the departments
+        eg.  SELECT DEPT1.* FROM DEPT1
+              INNER JOIN DEPT2 USING(EMPID);
+
+
+42.minus
+      List out all the employees working in dept1 but not in dept2.
+      eg.   SELECT * FROM DEPT1
+            LEFT JOIN DEPT2 USING(EMPID)
+            WHERE DEPT2.EMPID IS NULL;
 
 
 
