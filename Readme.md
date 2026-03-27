@@ -48,6 +48,7 @@ eg. INSERT INTO CUSTOMER VALUES(121,'BOB');
 6.for show the data with table
 SELECT * FROM table_name;
 eg. SELECT * FROM CUSTOMER;
+eg. SELECT FIRST_NAME,SALARY FROM WORKER;
 
 
 7. for access any secure data
@@ -73,6 +74,7 @@ ALTER TABLE ACCOUNT MODIFY INTEREST DOUBLE NOT NULL DEFAULT 0;
 11. for Deleting table data
 TRUNCATE TABLE table_name;
 eg. TRUNCATE TABLE CUSTOMER;
+
 
 
 
