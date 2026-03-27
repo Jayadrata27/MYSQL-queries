@@ -70,5 +70,11 @@ ALTER TABLE table_name MODIFY col_name data_type ;
 ALTER TABLE ACCOUNT MODIFY INTEREST DOUBLE NOT NULL DEFAULT 0;
 
 
+11. for Deleting table data
+TRUNCATE TABLE table_name;
+eg. TRUNCATE TABLE CUSTOMER;
+
+
+
 
 
