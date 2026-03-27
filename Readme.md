@@ -76,6 +76,32 @@ TRUNCATE TABLE table_name;
 eg. TRUNCATE TABLE CUSTOMER;
 
 
+12.for drop(delete) table
+DROP TABLE IF EXISTS table_name;
+eg. DROP TABLE IF EXISTS WORKER;
+
+
+13. for drop(delete) column
+ALTER TABLE table_name DROP COLUMN  col_name;
+eg. ALTER TABLE ACCOUNT DROP COLUMN SAVING_INTERSET;
+
+
+14.for rename table
+ALTER TABLE old_table_name RENAME TO new_table_name;
+eg. ALTER TABLE ACCOUNT RENAME TO ACCOUNT_DETAILS;
+
+
+15.for update data on column
+eg. UPDATE CUSTOMER SET ADDRESS='MUMBAI',GENDER='M' WHERE ID=121;
+
+
+16.
+
+
+
+
+
+
 
 
 
