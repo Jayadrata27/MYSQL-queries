@@ -245,6 +245,62 @@ eg.     SELECT * FROM DEPT1
 
 
 
+43. SUB QUERIES
+    -- WHERE clause same table
+    -- employees with age > 30
+    SELECT * FROM EMPLOYEE WHERE AGE IN(SELECT AGE FROM EMPLOYEE WHERE AGE>30);
+
+
+
+     -- WHERE clause different table
+     -- emp details working in more than 1 project.
+     SELECT * FROM EMPLOYEE WHERE ID IN(SELECT EMPID FROM PROJECT GROUP BY EMPID HAVING COUNT(EMPID)>1);
+
+
+
+     -- single value subquery
+     -- emp details having age> avg(age)
+     SELECT * FROM EMPLOYEE WHERE AGE>(SELECT AVG(AGE) FROM EMPLOYEE);
+
+
+
+     -- FROM clause derived tables
+     -- select max age person whose first name contains 'a'
+     SELECT MAX(AGE) FROM (SELECT * FROM EMPLOYEE WHERE FNAME LIKE '%a%') AS COMPANY;
+
+
+
+    -- Corelated subquery
+    -- find 3rd oldest employee
+    SELECT *
+    FROM EMPLOYEE AS E1
+    WHERE 3=(
+        SELECT COUNT(E2.AGE)
+        FROM EMPLOYEE AS E2
+        WHERE E2.AGE>=E1.AGE
+       );
+
+
+
+
+
+ 44.view
+    -- CREATING A VIEW
+    CREATE VIEW CUSTOM_VIEW AS SELECT FNAME,AGE FROM EMPLOYEE;
+
+
+    -- viewing  from view
+    SELECT * FROM CUSTOM_VIEW;    
+
+
+    -- alter the view
+    ALTER VIEW CUSTOM_VIEW AS SELECT FNAME,LNAME,AGE FROM EMPLOYEE; 
+
+
+    -- droping the view
+    DROP VIEW IF EXISTS CUSTOM_VIEW;
+
+
 
 
 
